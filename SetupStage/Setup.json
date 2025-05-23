@@ -1,0 +1,589 @@
+﻿{
+    "$schema": "@SOTI_PROD_ARTIFACTORY_BASE_URL/JsonSchema/invoke-tasks/soti.net.jsonschema.invoke-tasks.v4.json",
+    "Settings":
+    {
+        "PowerShellGet":
+        {
+            "Repositories":
+            {
+                "SOTI PowerShellGet Repository":
+                {
+                    "ModuleSourceLocation": "@SOTI_PROD_ARTIFACTORY_BASE_URL/api/nuget/DevOps_PowerShell_Modules",
+                    "ScriptSourceLocation": "@SOTI_PROD_ARTIFACTORY_BASE_URL/api/nuget/DevOps_PowerShell_Scripts"
+                }
+            }
+        }
+    },
+    "Unpackaging":
+    {
+        "Packages":
+        [
+        ]
+    },
+    "Tasks":
+    [
+        {
+            "Title": "Install tools",
+            "Tags":
+            [
+                "*"
+            ],
+            "Script":
+            {
+                "Name": "Install-Tools",
+                "Version": "1.0.0"
+            },
+            "Arguments":
+            {
+                "ToolsDir": "$Root:Tools",
+                "Tools":
+                {
+                    "Chocolatey":
+                    {
+                        "DefaultSource": "@SOTI_PROD_ARTIFACTORY_BASE_URL/api/nuget/choco_local_all",
+                        "Packages":
+                        [
+                        ]
+                    },
+                    "NuGet":
+                    {
+                        "DefaultSource": "@SOTI_PROD_ARTIFACTORY_BASE_URL/api/nuget/nuget",
+                        "Packages":
+                        [
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "Title": "Create Stack",
+            "Tags":
+            [
+                "*"
+            ],
+            "Script": "$In:.ci/SetupStage/Scripts/Create-Stack.ps1",
+            "Arguments":
+            {
+                "Pipeline": "@Pipeline",
+                "VmPoolBaseUrl": "@VmPoolBaseUrl",
+                "VmPoolAuthToken": "@VmPoolAuthToken",
+                "Region": "@Region",
+                "AccessKey": "@AccessKey",
+                "SecretKey": "@SecretKey",
+                "InfrastructureType": "@InfrastructureType",
+                "ConfigurationFilePath": "@ConfigurationFilePath",
+                "InstanceDefinitionFilePath": "$In:.ci/SetupStage/Misc/@InstanceDefinitionFileName",
+                "InstallerUrl": "@InstallerUrl",
+                "DeviceFamilies": "@DeviceFamilies",
+                "AwsStackCreationTimeout": "@AwsStackCreationTimeout",
+                "LocalStackCreationTimeout": "@LocalStackCreationTimeout",
+                "AwsMinimumVersion": "@AwsMinimumVersion",
+                "TerraformMinimumVersion" : "@TerraformMinimumVersion",
+                "McConsoleUser": "@WindowsUserName",
+                "McDbUser": "@SqlServerUserName",
+                "McServerUsername": "@MobiControlUserName",
+                "MobiControlDatabaseName": "@MobiControlDatabaseName",
+                "TerraformWorkingDirectory": "@TerraformWorkingDirectory",
+                "TerraformThreads": "@TerraformThreads",
+                "OutType": "json",
+                "OutFile": "@StackInfoFilePath",
+                "ClientId" : "@ClientId",
+                "ClientSecret" : "@ClientSecret",
+                "TenantId" : "@TenantId",
+                "SubscriptionId" : "@SubscriptionId",
+                "ResourceGroup" : "@ResourceGroup",
+                "StorageAccountName" : "@StorageAccountName",
+                "ContainerName" : "@TerraformStateFileContainerName",
+                "StandardBlobTier" : "@StandardBlobTier",
+                "StackCreationParameters":
+                {
+                    "ResourceGroup" : "@ResourceGroup",
+                    "Region": "@Region",
+                    "KeyName": "@KeyPair",
+                    "MobiControlManagementServiceInstanceType": "@MobiControlManagementServiceInstanceType",
+                    "SearchServiceInstanceType": "@SearchServiceInstanceType",
+                    "MobiControlDeploymentServerInstanceType": "@MobiControlDeploymentServerInstanceType",
+                    "JMeterInstanceType": "@JMeterInstanceType",
+                    "SqlInstanceType": "@SqlInstanceType",
+                    "DeviceSimulatorInstanceType": "@DeviceSimulatorInstanceType",
+                    "ApnsSimulatorInstanceType": "@ApnsSimulatorInstanceType",
+                    "XTHubInstanceType": "@XTHubInstanceType",
+                    "MobiControlDeploymentServerInstanceCount" : "@MobiControlDeploymentServerInstanceCount",
+                    "MobiControlManagementServiceInstanceCount" : "@MobiControlManagementServiceInstanceCount",
+                    "SearchServiceInstanceCount" : "@SearchServiceInstanceCount",
+                    "SqlInstanceCount" : "@SqlInstanceCount",
+                    "JMeterInstanceCount" : "@JMeterInstanceCount",
+                    "ApnsSimulatorInstanceCount" : "@ApnsSimulatorInstanceCount",
+                    "DeviceSimulatorInstanceCount" : "@DeviceSimulatorInstanceCount",
+                    "XTHubInstanceCount": "@XTHubInstanceCount",
+                    "LinuxUserName": "@LinuxUserName",
+                    "RemoteAccessCidr1": "@RemoteAccessCidr1",
+                    "RemoteAccessCidr2": "@RemoteAccessCidr2",
+                    "RemoteControlCidr1": "@RemoteControlCidr1",
+                    "RemoteControlCidr2": "@RemoteControlCidr2",
+                    "MobiControlImageDefinition": "@MCImage",
+                    "SqlInstanceImageDefinition": "@SqlImage",
+                    "XThubImageDefinition": "@XTHubImage",
+                    "VpcId": "@VpcId",
+                    "SubnetId": "@SubnetId",
+                    "InstanceCpuCreditType": "@InstanceCpuCreditType",
+                    "IamProfile": "@IamProfile",
+                    "WindowsUser": "@WindowsUserName",
+                    "AzureSecurityGroupId": "@AzureSecurityGroupId",
+                    "AwsMcPerformanceRdpTcpSecurityGroupName": "@AwsMcPerformanceRdpTcpSecurityGroupName",
+                    "AwsMcPerformanceRdpUdpSecurityGroupName": "@AwsMcPerformanceRdpUdpSecurityGroupName",
+                    "AwsMcPerformanceSshSecurityGroupName": "@AwsMcPerformanceSshSecurityGroupName",
+                    "AwsMcPerformanceWinrmAndGlobalSecurityGroupName": "@AwsMcPerformanceWinrmAndGlobalSecurityGroupName",
+                    "AwsMcPerformanceDbSecurityGroupName": "@AwsMcPerformanceDbSecurityGroupName",
+                    "SqlInstanceVolumeSize": "@SqlInstanceVolumeSize",
+                    "JMeterInstanceVolumeSize": "@JMeterInstanceVolumeSize",
+                    "AzureSqlInstanceDataDiskSkuType": "@AzureSqlInstanceDataDiskSkuType",
+                    "AzureInstanceDataDiskSkuType": "@AzureInstanceDataDiskSkuType",
+                    "AzureSqlOsDiskSkuType": "@AzureSqlOsDiskSkuType",
+                    "AzureOsDiskSkuType": "@AzureOsDiskSkuType",
+                    "WindowsPassword":
+                    {
+                        "#GeneratePassword": 36,
+                        "#CharacterSets": "EnglishLetters, Digits"
+                    },
+                    "LinuxPassword":
+                    {
+                        "#GeneratePassword": 32
+                    },
+                    "S3Bucket": "@Bucket",
+                    "SaPassword":
+                    {
+                        "#GeneratePassword": 36,
+                        "#CharacterSets": "EnglishLetters, Digits"
+                    },
+                    "MobiControlApiClientName": "ApiClient_@{Pipeline}",
+                    "MobiControlApiClientPassword":
+                    {
+                        "#GeneratePassword": 16
+                    },
+                    "InstallationId": "@McInstallationId",
+                    "CertificateThumbprint": "3535c27522384a90eadfffa8da952f0c607d6073",
+                    "MobiControlPassword":
+                    {
+                        "#GeneratePassword": 16
+                    },
+                    "CurrentOwnerTag": "@CurrentOwnerTag",
+                    "TriggeredByTag": "@TriggeredByTag",
+                    "ManagerEmailTag": "@ManagerEmailTag",
+                    "CostUsageTag": "@CostUsageTag",
+                    "EncryptionKeyId": "@EncryptionKeyId",
+                    "CreationDateTag": "@CreationDateTag"
+                }
+            }
+        },
+        {
+            "Title": "Set up cloud instances remotely",
+            "Tags":
+            [
+                "*"
+            ],
+            "Script": "$In:.ci/SetupStage/Scripts/SetUp-CloudInstancesRemotely.ps1",
+            "Arguments":
+            {
+                "InfrastructureType": "@InfrastructureType",
+                "VmPoolBaseUrl": "@VmPoolBaseUrl",
+                "VmPoolAuthToken": "@VmPoolAuthToken",
+                "MobiControlFunctionalityType": "@MobiControlFunctionalityType",
+                "DeviceFamilies": "@DeviceFamilies",
+                "DevOpsDataRootDir": "@DevOpsDataRootDir",
+                "ConfigurationFilePath": "@ConfigurationFilePath",
+                "StackInfoFilePath": "@StackInfoFilePath",
+                "Pipeline": "@Pipeline",
+                "Bucket": "@Bucket",
+                "TimeZone": "Eastern Standard Time",
+                "ClientId": "@ClientId",
+                "ClientSecret": "@ClientSecret",
+                "TenantId": "@TenantId",
+                "SubscriptionId": "@SubscriptionId",
+                "ResourceGroup": "@ResourceGroup",
+                "StorageAccountName": "@StorageAccountName",
+                "SearchServiceName": "@SearchServiceName",
+                "SearchServiceDeploymentType": "@SearchServiceDeploymentType",
+                "VmHostServiceUserName": "@VmHostServiceUserName",
+                "VmHostServiceUserPassword": "@VmHostServiceUserPassword",
+                "AmdHostNames": "@AmdHostNames",
+                "OpenFirewallPorts":
+                {
+                    "Inbound":
+                    [
+                        443,
+                        445,
+                        2195,
+                        3389,
+                        4444,
+                        5494,
+                        5495,
+                        5496,
+                        5500,
+                        5985,
+                        5986,
+                        9200,
+                        9300,
+                        5596,
+                        13131
+                    ],
+                    "Outbound":
+                    [
+                        5494,
+                        13131
+                    ]
+                },
+                "CommonPostInitializationScripts":
+                [
+                    {
+                        "Name": "Disable-RedundantWindowsServices"
+                    },
+                    {
+                        "Name": "Install-DotNetFramework",
+                        "Arguments":
+                        {
+                            "InfrastructureType": "@InfrastructureType",
+                            "FileName": "ndp48-x86-x64-allos-enu.exe",
+                            "Directory": "@DevOpsDataRootDir/DynamicInstall",
+                            "BucketName": "@StaticDataBucket",
+                            "ClientId": "@ClientId",
+                            "ClientSecret": "@ClientSecret",
+                            "TenantId": "@TenantId",
+                            "SubscriptionId": "@SubscriptionId",
+                            "ResourceGroup": "@ResourceGroup",
+                            "StorageAccountName": "@StorageAccountName",
+                            "ContainerName" : "@StaticInputDataContainerName",
+                            "StorageBlob": "@StaticStorageBlob"
+                        }
+                    }
+                ],
+                "CommonStepsTimeout": "00:20:00",
+                "Instances":
+                [
+                    {
+                        "Name": "ApnsSimulator",
+                        "FriendlyName": "APNS Simulator",
+                        "StackCreationPropertyPrefix": "ApnsSimulator",
+                        "MultiInstance": false,
+                        "InitializationScripts":
+                        [
+                            {
+                                "Name": "StopAndDisable-AllSqlServerServices"
+                            }
+                        ],
+                        "ScriptArguments":
+                        {
+                            "InfrastructureType": "@InfrastructureType",
+                            "ChocolateyPackageDirectory": "@DevOpsDataRootDir/ChocolateyPackages",
+                            "MockSotiServiceDirectory": "@DevOpsDataRootDir",
+                            "ApnsChocolateyPackageId": "@ApnsChocolateyPackageId",
+                            "WindowsUserName":
+                            {
+                                "#CFOutput": "WindowsUserName"
+                            },
+                            "WindowsPassword":
+                            {
+                                "#CFOutput": "WindowsPassword"
+                            },
+                            "DSPublicDnsNames":
+                            {
+                                "#CFOutput": "DsPublicDnsName*"
+                            },
+                            "MSPublicDnsName":
+                            {
+                                "#CFOutput": "MsPublicDnsName"
+                            }
+                        }
+                    },
+                    {
+                        "Name": "DeviceSimulator",
+                        "FriendlyName": "Device Simulator",
+                        "StackCreationPropertyPrefix": "DeviceSimulator",
+                        "MultiInstance": true,
+                        "InitializationScripts":
+                        [
+                            {
+                                "Name": "StopAndDisable-AllSqlServerServices"
+                            }
+                        ],
+                        "ScriptArguments":
+                        {
+                            "InfrastructureType": "@InfrastructureType",
+                            "ChocolateyPackageDirectory": "@DevOpsDataRootDir/ChocolateyPackages"
+                        }
+                    },
+                    {
+                        "Name": "JMeter",
+                        "MultiInstance": false,
+                        "StackCreationPropertyPrefix": "JMeter",
+                        "InitializationScripts":
+                        [
+                            {
+                                "Name": "StopAndDisable-AllSqlServerServices"
+                            }
+                        ],
+                        "ScriptArguments":
+                        {
+                            "InfrastructureType": "@InfrastructureType",
+                            "ChocolateyPackageDirectory": "@DevOpsDataRootDir/ChocolateyPackages",
+                            "CloudJmeterScriptsDir": "@CloudJmeterScriptsDir",
+                            "CloudJmeterScriptsFileName": "@CloudJmeterScriptsFileName",
+                            "CloudTestDataDir": "@CloudTestDataDir",
+                            "CloudJMeterPackagesFileName": "@CloudJMeterPackagesFileName",
+                            "JMeterScriptsLocalDir": "@DevOpsDataRootDir/JMeterScripts",
+                            "StaticDataBucket": "@StaticDataBucket",
+                            "ClientId": "@ClientId",
+                            "ClientSecret": "@ClientSecret",
+                            "TenantId": "@TenantId",
+                            "SubscriptionId": "@SubscriptionId",
+                            "ResourceGroup": "@ResourceGroup",
+                            "StorageAccountName": "@StorageAccountName",
+                            "ContainerName" : "@StaticInputDataContainerName",
+                            "StorageBlob": "@StaticStorageBlob"
+                        }
+                    },
+                    {
+                        "Name": "SqlServer",
+                        "FriendlyName": "MS SQL Server",
+                        "StackCreationPropertyPrefix": "Sql",
+                        "MultiInstance": false,
+                        "ScriptArguments":
+                        {
+                            "InfrastructureType": "@InfrastructureType",
+                            "DevOpsDataRootDir": "@DevOpsDataRootDir",
+                            "DataBaseSetupType": "@DataBaseSetupType",
+                            "DataBaseBackUpFileVersion": "@DataBaseBackUpFileVersion",
+                            "DataBaseDescription": "@DataBaseDescription",
+                            "MobiControlDatabaseName": "@MobiControlDatabaseName",
+                            "MobiControlDatabaseArchiveName": "@MobiControlDatabaseArchiveName",
+                            "StaticDataBucket": "@StaticDataBucket",
+                            "ClientId": "@ClientId",
+                            "ClientSecret": "@ClientSecret",
+                            "TenantId": "@TenantId",
+                            "SubscriptionId": "@SubscriptionId",
+                            "ResourceGroup": "@AzureDataStorageResourceGroup",
+                            "StorageAccountName": "@AzureStaticDataStorageAccountName",
+                            "ContainerName": "@AzureStaticDataContainerName",
+                            "DefaultDatabasePassword": "@DefaultDatabasePassword",
+                            "SqlVersion": "@SqlVersion",
+                            "SaPassword":
+                            {
+                                "#CFOutput": "SqlServerPassword"
+                            }
+                        }
+                    },
+                    {
+                        "Name": "MobiControl",
+                        "FriendlyName": "MobiControl Management Service",
+                        "StackCreationPropertyPrefix": "Ms",
+                        "MultiInstance": false,
+                        "InitializationScripts":
+                        [
+                            {
+                                "Name": "StopAndDisable-AllSqlServerServices"
+                            }
+                        ],
+                        "ScriptArguments":
+                        {
+                            "InfrastructureType": "@InfrastructureType",
+                            "IsNextGenInstaller": "@IsNextGenInstaller",
+                            "SearchServiceName": "@SearchServiceName",
+                            "SearchServiceDeploymentType": "@SearchServiceDeploymentType",
+                            "DevOpsDataRootDir": "@DevOpsDataRootDir",
+                            "DataBaseSetupType": "@DataBaseSetupType",
+                            "FileSyncDataDirectory": "@FileSyncDataLocation",
+                            "StaticDataBucket": "@StaticDataBucket",
+                            "CloudTestDataDir": "@CloudTestDataDir",
+                            "CloudFileSyncDataFileName": "@CloudFileSyncDataFileName",
+                            "DevOpsCertPassword": "@DevOpsCertPassword",
+                            "ClientId": "@ClientId",
+                            "ClientSecret": "@ClientSecret",
+                            "TenantId": "@TenantId",
+                            "SubscriptionId": "@SubscriptionId",
+                            "ResourceGroup": "@ResourceGroup",
+                            "StorageAccountName": "@StorageAccountName",
+                            "ContainerName" : "@StaticInputDataContainerName",
+                            "StorageBlob": "@StaticStorageBlob",
+                            "SqlVersion": "@SqlVersion",
+                            "ApnsSimulatorPublicDnsName":
+                            {
+                                "#CFOutput": "ApnsSimulatorPublicDnsName"
+                            },
+                            "SqlInstanceAddress":
+                            {
+                                "#CFOutput": "SqlPrivateIp"
+                            },
+                            "SaPassword":
+                            {
+                                "#CFOutput": "SqlServerPassword"
+                            },
+                            "DatabaseName":
+                            {
+                                "#CFOutput": "MobiControlDatabaseName"
+                            },
+                            "Component": "ms",
+                            "InstallationTimeout": "03:00:00",
+                            "MobiControlApiClientName":
+                            {
+                                "#CFOutput": "MobiControlApiClientName"
+                            },
+                            "MobiControlApiClientPassword":
+                            {
+                                "#CFOutput": "MobiControlApiClientPassword"
+                            },
+                            "InstallationId": "@McInstallationId",
+                            "CertificateThumbprint": "3535c27522384a90eadfffa8da952f0c607d6073",
+                            "RegistrationCode": "@RegistrationCode",
+                            "MobiControlPassword":
+                            {
+                                "#CFOutput": "MobiControlPassword"
+                            }
+                        }
+                    },
+                    {
+                        "Name": "MobiControl",
+                        "FriendlyName": "MobiControl Deployment Server",
+                        "StackCreationPropertyPrefix": "Ds",
+                        "MultiInstance": true,
+                        "InitializationScripts":
+                        [
+                            {
+                                "Name": "StopAndDisable-AllSqlServerServices"
+                            },
+                            {
+                                "Name": "Install-OleDbDriver",
+                                "Arguments":
+                                {
+                                    "InfrastructureType": "@InfrastructureType",
+                                    "FileName": "msoledbsql_18.6.7.0_x64.msi",
+                                    "Directory": "@DevOpsDataRootDir/DynamicInstall",
+                                    "ExpectedVersion": "18.6.7.0",
+                                    "BucketName": "@StaticDataBucket",
+                                    "ClientId": "@ClientId",
+                                    "ClientSecret": "@ClientSecret",
+                                    "TenantId": "@TenantId",
+                                    "SubscriptionId": "@SubscriptionId",
+                                    "ResourceGroup": "@ResourceGroup",
+                                    "StorageAccountName": "@StorageAccountName",
+                                    "ContainerName" : "@StaticInputDataContainerName",
+                                    "StorageBlob": "@StaticStorageBlob"
+                                }
+                            }
+                        ],
+                        "ScriptArguments":
+                        {
+                            "InfrastructureType": "@InfrastructureType",
+                            "IsNextGenInstaller": "@IsNextGenInstaller",
+                            "SearchServiceName": "@SearchServiceName",
+                            "SearchServiceDeploymentType": "@SearchServiceDeploymentType",
+                            "DevOpsDataRootDir": "@DevOpsDataRootDir",
+                            "DataBaseSetupType": "@DataBaseSetupType",
+                            "FileSyncDataDirectory": "@FileSyncDataLocation",
+                            "StaticDataBucket": "@StaticDataBucket",
+                            "CloudTestDataDir": "@CloudTestDataDir",
+                            "CloudFileSyncDataFileName": "@CloudFileSyncDataFileName",
+                            "DevOpsCertPassword": "@DevOpsCertPassword",
+                            "ClientId": "@ClientId",
+                            "ClientSecret": "@ClientSecret",
+                            "TenantId": "@TenantId",
+                            "SubscriptionId": "@SubscriptionId",
+                            "ResourceGroup": "@ResourceGroup",
+                            "StorageAccountName": "@StorageAccountName",
+                            "ContainerName" : "@StaticInputDataContainerName",
+                            "StorageBlob": "@StaticStorageBlob",
+                            "SqlVersion": "@SqlVersion",
+                            "ApnsSimulatorPublicDnsName":
+                            {
+                                "#CFOutput": "ApnsSimulatorPublicDnsName"
+                            },
+                            "SqlInstanceAddress":
+                            {
+                                "#CFOutput": "SqlPrivateIp"
+                            },
+                            "SaPassword":
+                            {
+                                "#CFOutput": "SqlServerPassword"
+                            },
+                            "DatabaseName":
+                            {
+                                "#CFOutput": "MobiControlDatabaseName"
+                            },
+                            "Component": "ds",
+                            "InstallationTimeout": "00:15:00"
+                        }
+                    },
+                    {
+                        "Name": "MobiControl",
+                        "FriendlyName": "Soti Search",
+                        "StackCreationPropertyPrefix": "Ss",
+                        "MultiInstance": false,
+                        "InitializationScripts":
+                        [
+                            {
+                                "Name": "StopAndDisable-AllSqlServerServices"
+                            }
+                        ],
+                        "ScriptArguments":
+                        {
+                            "InfrastructureType": "@InfrastructureType",
+                            "IsNextGenInstaller": "@IsNextGenInstaller",
+                            "SearchServiceName": "@SearchServiceName",
+                            "SearchServiceDeploymentType": "@SearchServiceDeploymentType",
+                            "DevOpsDataRootDir": "@DevOpsDataRootDir",
+                            "FileSyncDataDirectory": "@FileSyncDataLocation",
+                            "StaticDataBucket": "@StaticDataBucket",
+                            "CloudTestDataDir": "@CloudTestDataDir",
+                            "CloudFileSyncDataFileName": "@CloudFileSyncDataFileName",
+                            "DevOpsCertPassword": "@DevOpsCertPassword",
+                            "ClientId": "@ClientId",
+                            "ClientSecret": "@ClientSecret",
+                            "TenantId": "@TenantId",
+                            "SubscriptionId": "@SubscriptionId",
+                            "ResourceGroup": "@ResourceGroup",
+                            "StorageAccountName": "@StorageAccountName",
+                            "ContainerName" : "@StaticInputDataContainerName",
+                            "StorageBlob": "@StaticStorageBlob",
+                            "DataBaseSetupType": "@DataBaseSetupType",
+                            "SqlVersion": "@SqlVersion",
+                            "SqlInstanceAddress":
+                            {
+                                "#CFOutput": "SqlPrivateIp"
+                            },
+                            "SaPassword":
+                            {
+                                "#CFOutput": "SqlServerPassword"
+                            },
+                            "DatabaseName":
+                            {
+                                "#CFOutput": "MobiControlDatabaseName"
+                            },
+                            "Component": "search",
+                            "InstallationTimeout": "00:20:00"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Title": "Convert stack information to HTML",
+            "Tags":
+            [
+                "*"
+            ],
+            "Script": "$In:.ci/SetupStage/Scripts/Convert-StackInfoToHtml.ps1",
+            "Arguments":
+            {
+                "StackInfoFilePath": "@StackInfoFilePath"
+            }
+        }
+    ],
+    "OnFailureTasks":
+    [
+    ],
+    "Packaging":
+    {
+        "Packages":
+        [
+        ]
+    }
+}

@@ -1,0 +1,426 @@
+{
+    "InstanceType":
+    {
+        "Local":
+        {
+            "4xlarge":
+            {
+                "MemoryGB": 64,
+                "CPU": 16
+            },
+            "4xlarge-2xRAM":
+            {
+                "MemoryGB": 128,
+                "CPU": 16
+            },
+            "2xlarge":
+            {
+                "MemoryGB": 32,
+                "CPU": 8
+            },
+            "2xlarge-2xRAM":
+            {
+                "MemoryGB": 64,
+                "CPU": 8
+            },
+            "3xlarge-2xRAM":
+            {
+                "MemoryGB": 96,
+                "CPU": 12
+            },
+            "xlarge":
+            {
+                "MemoryGB": 16,
+                "CPU": 4
+            },
+            "xlarge_customized":
+            {
+                "MemoryGB": 8,
+                "CPU": 4
+            },
+            "nightlybuildxlarge":
+            {
+                "MemoryGB": 16,
+                "CPU": 4
+            },
+            "xlarge-2xRAM":
+            {
+                "MemoryGB": 32,
+                "CPU": 4
+            },
+            "large":
+            {
+                "MemoryGB": 8,
+                "CPU": 2
+            },
+            "large-2xRAM":
+            {
+                "MemoryGB": 16,
+                "CPU": 2
+            },
+            "Medium":
+            {
+                "MemoryGB": 4,
+                "CPU": 2
+            },
+            "SQL-large":
+            {
+                "MemoryGB": 16,
+                "CPU": 2
+            },
+            "SQL-xlarge":
+            {
+                "MemoryGB": 32,
+                "CPU": 4
+            },
+            "SQL-2xlarge":
+            {
+                "MemoryGB": 64,
+                "CPU": 8
+            },
+            "SQL-3xlarge":
+            {
+                "MemoryGB": 96,
+                "CPU": 12
+            },
+            "SQL-4xlarge":
+            {
+                "MemoryGB": 128,
+                "CPU": 16
+            },
+            "SQL-6xlarge":
+            {
+                "MemoryGB": 192,
+                "CPU": 24
+            }
+        },
+        "AWS":
+        {
+            "APNS":
+            {
+                "medium":
+                {
+                    "EC2-Equivalent": "t3.medium"
+                },
+                "large":
+                {
+                    "EC2-Equivalent": "t3.large"
+                },
+                "nightlybuildxlarge":
+                {
+                    "EC2-Equivalent": "t3.xlarge"
+                }, 
+                "xlarge":
+                {
+                    "EC2-Equivalent": "t3.xlarge"
+                }, 
+                "2xlarge":
+                {
+                    "EC2-Equivalent": "t3.2xlarge"
+                }
+            },
+            "General":
+            {
+                "medium":
+                {
+                    "EC2-Equivalent": "t3.medium"
+                },
+                "large":
+                {
+                    "EC2-Equivalent": "m5.large"
+                },
+                "nightlybuildxlarge":
+                {
+                    "EC2-Equivalent": "t3.xlarge"
+                }, 
+                "xlarge":
+                {
+                    "EC2-Equivalent": "m5.xlarge"
+                },
+                "xlarge_customized":
+                {
+                    "EC2-Equivalent": "m5.xlarge"
+                },
+                "2xlarge":
+                {
+                    "EC2-Equivalent": "m5.2xlarge"
+                },
+                "4xlarge":
+                {
+                    "EC2-Equivalent": "m5.4xlarge"
+                },
+                "large-2xRAM":
+                {
+                    "EC2-Equivalent": "z1d.large"
+                },
+                "xlarge-2xRAM":
+                {
+                    "EC2-Equivalent": "z1d.xlarge"
+                },
+                "2xlarge-2xRAM":
+                {
+                    "EC2-Equivalent": "z1d.2xlarge"
+                },
+                "3xlarge-2xRAM":
+                {
+                    "EC2-Equivalent": "z1d.3xlarge"
+                },
+                "SQL-large":
+                {
+                    "EC2-Equivalent": "i3en.large"
+                },
+                "SQL-xlarge":
+                {
+                    "EC2-Equivalent": "i3en.xlarge"
+                },
+                "SQL-2xlarge":
+                {
+                    "EC2-Equivalent": "i3en.2xlarge"
+                },
+                "SQL-3xlarge":
+                {
+                    "EC2-Equivalent": "z1d.3xlarge"
+                },
+                "SQL-4xlarge":
+                {
+                    "EC2-Equivalent": "i3en.6xlarge"
+                },
+                "SQL-6xlarge":
+                {
+                    "EC2-Equivalent": "z1d.6xlarge"
+                }
+            }
+        },
+        "Azure":
+        {
+            "APNS":
+            {
+                "medium":
+                {
+                    "Azure-Equivalent": "Standard_F2s_v2"
+                },
+                "large":
+                {
+                    "Azure-Equivalent": "Standard_D2s_v5"
+                },
+                "nightlybuildxlarge":
+                {
+                    "Azure-Equivalent": "Standard_D2s_v5"
+                },
+                "xlarge":
+                {
+                    "Azure-Equivalent": "Standard_D4s_v5"
+                },
+                "2xlarge":
+                {
+                    "Azure-Equivalent": "Standard_D8s_v5"
+                }
+            },
+            "General":
+            {
+                "medium":
+                {
+                    "Azure-Equivalent": "Standard_F2s_v2"
+                },
+                "large":
+                {
+                    "Azure-Equivalent": "Standard_D2s_v5"
+                },
+                "nightlybuildxlarge":
+                {
+                    "Azure-Equivalent": "Standard_D4s_v5"
+                }, 
+                "xlarge":
+                {
+                    "Azure-Equivalent": "Standard_D4s_v5"
+                },
+                "xlarge_customized":
+                {
+                    "Azure-Equivalent": "Standard_D4s_v5"
+                }, 
+                "2xlarge":
+                {
+                    "Azure-Equivalent": "Standard_D8s_v5"
+                },
+                "4xlarge":
+                {
+                    "Azure-Equivalent": "Standard_D16s_v5"
+                },
+                "large-2xRAM":
+                {
+                    "Azure-Equivalent": "Standard_E2as_v5"
+                },
+                "xlarge-2xRAM":
+                {
+                    "Azure-Equivalent": "Standard_E4as_v5"
+                },
+                "2xlarge-2xRAM":
+                {
+                    "Azure-Equivalent": "Standard_E8as_v5"
+                },
+                "3xlarge-2xRAM":
+                {
+                    "Azure-Equivalent": "Standard_E16as_v5"
+                },
+                "SQL-large":
+                {
+                    "Azure-Equivalent": "Standard_E2ds_v5"
+                },
+                "SQL-xlarge":
+                {
+                    "Azure-Equivalent": "Standard_E4as_v5"
+                },
+                "SQL-2xlarge":
+                {
+                    "Azure-Equivalent": "Standard_E8ds_v5"
+                },
+                "SQL-3xlarge":
+                {
+                    "Azure-Equivalent": "Standard_E16ads_v5"
+                },
+                "SQL-4xlarge":
+                {
+                    "Azure-Equivalent": "Standard_E16ads_v5"
+                },
+                "SQL-6xlarge":
+                {
+                    "Azure-Equivalent": "Standard_E20as_v5"
+                }
+            }
+        }
+    },
+    "ImageDefinition":
+    {
+        "Local":
+        {
+            "WS2022":
+            {
+                "General":
+                {
+                    "ImageDescriptor": "https://artifactory-devops.soti.net/artifactory/VMImagesInUse/WS2022_SQL2022_Developer-399.vhdx"
+                },
+                "SQL2022":
+                {
+                    "ImageDescriptor": "https://artifactory-devops.soti.net/artifactory/VMImagesInUse/WS2022_SQL2022_Developer-399.vhdx"
+                },
+                "SQL2019":
+                {
+                    "ImageDescriptor": "https://artifactory-devops.soti.net:443/artifactory/VMImagesInUse/WS2022_SQL2016_Developer-393.vhdx"
+                },
+                "SQL2016":
+                {
+                    "ImageDescriptor": "https://artifactory-devops.soti.net:443/artifactory/VMImagesInUse/WS2022_SQL2016_Developer-393.vhdx"
+                }
+            },
+            "WS2025":
+            {
+                "General":
+                {
+                    "ImageDescriptor": "https://artifactory-devops.soti.net:443/artifactory/VMImagesInUse/WS2025_SQL2022_Developer-396.vhdx"
+                },
+                "SQL2022":
+                {
+                    "ImageDescriptor": "https://artifactory-devops.soti.net:443/artifactory/VMImagesInUse/WS2025_SQL2022_Developer-396.vhdx"
+                },
+                "SQL2019":
+                {
+                    "ImageDescriptor": "https://artifactory-devops.soti.net:443/artifactory/VMImagesInUse/WS2025_SQL2019_Developer-396.vhdx"
+                },
+                "SQL2016":
+                {
+                    "ImageDescriptor": "https://artifactory-devops.soti.net:443/artifactory/VMImagesInUse/WS2025_SQL2016_Developer-401.vhdx"
+                }
+            },
+            "Linux":
+            {
+                "ImageDescriptor": "https://artifactory-devops.soti.net:443/artifactory/VMImagesInUse/Linux_US2004_82.vhdx"
+            }
+        },
+        "AWS":
+        {
+            "WS2022":
+            {
+                "General":
+                {
+                    "ImageDescriptor": "ami-00b7008419a957878"
+                },
+                "SQL2022":
+                {
+                    "ImageDescriptor": "ami-00b7008419a957878"
+                },
+                "SQL2019":
+                {
+                    "ImageDescriptor": "ami-0c17db18f58f551cd"
+                },
+                "SQL2016":
+                {
+                    "ImageDescriptor": "ami-0f81dee45d124ac23"
+                }
+            },
+            "WS2025":
+            {
+                "General":
+                {
+                    "ImageDescriptor": "ami-074262cb4310c4856"
+                },
+                "SQL2022":
+                {
+                    "ImageDescriptor": "ami-074262cb4310c4856"
+                },
+                "SQL2019":
+                {
+                    "ImageDescriptor": "ami-0f21b03e4f160b6b2"
+                },
+                "SQL2016":
+                {
+                    "ImageDescriptor": "ami-07a07e1269d1bba2a"
+                }
+            },
+            "Linux":
+            {
+                "ImageDescriptor": "ami-03f9314c1c67883e4"
+            }
+        },
+        "Azure":
+        {
+            "WS2022":
+            {
+                "General":
+                {
+                    "ImageDescriptor": "/subscriptions/a06473ea-dcb6-4d5c-9f73-5c96be032d1d/resourceGroups/rg-devops-image-staging-useast/providers/Microsoft.Compute/galleries/SotiDevOpsImages/images/WS2022_SQL2022_Developer-master/versions/384.0.0"
+                },
+                "SQL2022":
+                {
+                    "ImageDescriptor": "/subscriptions/a06473ea-dcb6-4d5c-9f73-5c96be032d1d/resourceGroups/rg-devops-image-staging-useast/providers/Microsoft.Compute/galleries/SotiDevOpsImages/images/WS2022_SQL2022_Developer-master/versions/384.0.0"
+                },
+                "SQL2019":
+                {
+                    "ImageDescriptor": "/subscriptions/a06473ea-dcb6-4d5c-9f73-5c96be032d1d/resourceGroups/rg-devops-image-staging-useast/providers/Microsoft.Compute/galleries/SotiDevOpsImages/images/WS2022_SQL2019_Developer-master/versions/384.0.0"
+                },
+                "SQL2016":
+                {
+                    "ImageDescriptor": "/subscriptions/a06473ea-dcb6-4d5c-9f73-5c96be032d1d/resourceGroups/rg-devops-image-staging-useast/providers/Microsoft.Compute/galleries/SotiDevOpsImages/images/WS2022_SQL2016_Developer-master/versions/384.0.0"
+                }
+            },
+            "WS2025":
+            {
+                "General":
+                {
+                    "ImageDescriptor": "/subscriptions/a06473ea-dcb6-4d5c-9f73-5c96be032d1d/resourceGroups/rg-devops-image-staging-useast/providers/Microsoft.Compute/galleries/SotiDevOpsImages/images/WS2025_SQL2022_Developer-master/versions/388.0.0"
+                },
+                "SQL2022":
+                {
+                    "ImageDescriptor": "/subscriptions/a06473ea-dcb6-4d5c-9f73-5c96be032d1d/resourceGroups/rg-devops-image-staging-useast/providers/Microsoft.Compute/galleries/SotiDevOpsImages/images/WS2025_SQL2022_Developer-master/versions/388.0.0"
+                },
+                "SQL2019":
+                {
+                    "ImageDescriptor": "/subscriptions/a06473ea-dcb6-4d5c-9f73-5c96be032d1d/resourceGroups/rg-devops-image-staging-useast/providers/Microsoft.Compute/galleries/SotiDevOpsImages/images/WS2025_SQL2019_Developer-master/versions/388.0.0"
+                },
+                "SQL2016":
+                {
+                    "ImageDescriptor": "/subscriptions/a06473ea-dcb6-4d5c-9f73-5c96be032d1d/resourceGroups/rg-devops-image-staging-useast/providers/Microsoft.Compute/galleries/SotiDevOpsImages/images/WS2025_SQL2016_Developer-master/versions/388.0.0"
+                }
+            }
+        }
+    }
+}
